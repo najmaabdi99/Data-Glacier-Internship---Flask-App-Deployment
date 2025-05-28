@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Iris Flower Predictor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .container {
+            margin-top: 60px;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #4b4b4b;
+            font-weight: 700;
+        }
+        .form-group label {
+            font-weight: 600;
+        }
+        .btn-primary {
+            background-color: #5c6ac4;
+            border: none;
+            font-weight: bold;
+        }
+        .result-box {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            background-color: #f0f4ff;
+            color: #2c3e50;
+        }
+        .flowers {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container col-md-6">
+        <div class="flowers">🌼 🌸 🌺 🌻 🌷</div>
+        <h2>Iris Flower Species Predictor</h2>
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label>Sepal Length (cm)</label>
+                <input type="text" name="sepal_length" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Sepal Width (cm)</label>
+                <input type="text" name="sepal_width" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Petal Length (cm)</label>
+                <input type="text" name="petal_length" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Petal Width (cm)</label>
+                <input type="text" name="petal_width" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Predict 🌼</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result-box">
+                🌸 Predicted Flower Species: <strong>{{ prediction }}</strong>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
